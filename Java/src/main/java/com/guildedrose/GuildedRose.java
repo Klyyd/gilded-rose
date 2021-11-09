@@ -9,53 +9,39 @@ public class GuildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < 30; i++) {
-            for (Item item : items) {
-                if (!item.name.equals("Aged Brie") && item.name.equals("Backstage passes")) {
-                    if (item.quality > 0) {
-                        if (!item.name.equals("Sulfuras")) {
-                            item.quality -= 1;
-                        }
-                    }
-                } else {
-                    if (item.quality < 50) {
-                        item.quality += 1;
-                        if (item.name.equals("Backstage passes")) {
-                            if (item.sellIn < 11) {
-                                if (item.quality < 50) {
-                                    item.quality += 1;
-                                }
-                            }
-                            if (item.sellIn < 6) {
-                                if (item.quality < 50) {
-                                    item.quality += 1;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (!item.name.equals("Sulfuras")) {
-                    item.sellIn -= 1;
-                }
-                if (item.sellIn < 0) {
-                    if (!item.name.equals("Aged Brie")) {
-                        if (item.name.equals("Backstage passes")) {
-                            if (item.quality > 0) {
-                                if (!item.name.equals("Sulfuras")) {
-                                    item.quality -= 1;
-                                }
-                            }
-                        } else {
-                            item.quality -= item.quality;
-                        }
-                    } else {
-                        if (item.quality < 50) {
-                            item.quality += 1;
-                        }
-                    }
-                }
-            }
+        for (Item i: this.items) {
+            this.keepQualityInRange(i);
+            this.updateItemQuality(i);
         }
+    }
+
+    private void updateItemQuality(Item item) {
+        if (item.name == "Sulfuras") return;
+        if (item.name == "Aged Brie") this.updateAgedBrieQuality(item);
+        else if (item.name == "backstage passes") this.updateBackstagePassesQuality(item);
+        else this.updateGenericQuality(item);
+    }
+
+    private void updateAgedBrieQuality(Item item) {
+        item.quality++;
+    }
+
+    private void updateBackstagePassesQuality(Item item) {
+        item.quality++;
+        if (item.sellIn < 10) item.quality++;
+        if (item.sellIn < 5) item.quality++;
+        if (item.sellIn < 0) item.quality = 0;
+    }
+
+    private void updateGenericQuality(Item item) {
+        item.quality--;
+        item.sellIn--;
+        if (item.sellIn < 0) item.quality--;
+    }
+
+    private void keepQualityInRange(Item item) {
+        if (item.quality < 0) item.quality = 0;
+        if (item.quality > 50) item.quality = 50;
     }
 
     public static void main(String[] args) {
