@@ -13,5 +13,10 @@ public class LegendaryItem extends Item {
 
     }
 
+    @Override
+    public int getSellin() {
+        return this.sellIn;
+    }
+
 
 }

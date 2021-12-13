@@ -16,4 +16,9 @@ public class AgedItem extends Item {
         this.sellQualityToFifty();
         this.sellQualityToZero();
     }
+
+    @Override
+    public int getSellin() {
+        return this.sellIn;
+    }
 }

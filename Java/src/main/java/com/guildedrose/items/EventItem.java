@@ -28,4 +28,9 @@ public class EventItem extends Item {
         this.sellQualityToFifty();
         this.sellQualityToZero();
     }
+
+    @Override
+    public int getSellin() {
+        return this.sellIn;
+    }
 }
