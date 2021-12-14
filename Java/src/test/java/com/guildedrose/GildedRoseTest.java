@@ -1,6 +1,5 @@
-package com.gildedrose;
+package com.guildedrose;
 
-import com.guildedrose.entities.Item;
 import com.guildedrose.items.*;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ class GildedRoseTest {
         agedItem.update();
 
         // Test SellIn
-        assertEquals(4, agedItem.getSellin());
+        assertEquals(4, agedItem.getSellIn());
 
         // Test Quality
         assertEquals(9, agedItem.getQuality());
@@ -34,7 +33,7 @@ class GildedRoseTest {
         conjuredItem.update();
 
         // Test SellIn
-        assertEquals(9, conjuredItem.getSellin());
+        assertEquals(9, conjuredItem.getSellIn());
 
         // Test Quality
         assertEquals(13, conjuredItem.getQuality());
@@ -54,10 +53,10 @@ class GildedRoseTest {
         legendaryItem.update();
 
         // Test SellIn
-        assertEquals(10, legendaryItem.getSellin());
+        assertEquals(9, legendaryItem.getSellIn());
 
         // Test Quality
-        assertEquals(15, legendaryItem.getQuality());
+        assertEquals(80, legendaryItem.getQuality());
     }
 
     @Test
@@ -66,7 +65,7 @@ class GildedRoseTest {
         genericItem.update();
 
         // Test SellIn
-        assertEquals(6, genericItem.getSellin());
+        assertEquals(6, genericItem.getSellIn());
 
         // Test Quality
         assertEquals(7, genericItem.getQuality());
@@ -78,10 +77,10 @@ class GildedRoseTest {
         genericItem.update();
 
         // Test SellIn
-        assertEquals(-2, genericItem.getSellin());
+        assertEquals(-1, genericItem.getSellIn());
 
         // Test Quality
-        assertEquals(5, genericItem.getQuality());
+        assertEquals(4, genericItem.getQuality());
     }
 
     @Test
@@ -90,7 +89,7 @@ class GildedRoseTest {
         eventItem.update();
 
         // Test SellIn
-        assertEquals(14, eventItem.getSellin());
+        assertEquals(14, eventItem.getSellIn());
 
         // Test Quality
         assertEquals(31, eventItem.getQuality());
@@ -118,7 +117,7 @@ class GildedRoseTest {
         eventItem.update();
 
         // Test SellIn
-        assertEquals(-1, eventItem.getSellin());
+        assertEquals(-1, eventItem.getSellIn());
 
         // Test Quality
         assertEquals(31, eventItem.getQuality());

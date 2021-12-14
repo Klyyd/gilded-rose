@@ -10,13 +10,7 @@ public class LegendaryItem extends Item {
 
     @Override
     public void update() {
-
+        this.sellIn --;
+        this.quality = 80;
     }
-
-    @Override
-    public int getSellin() {
-        return this.sellIn;
-    }
-
-
 }

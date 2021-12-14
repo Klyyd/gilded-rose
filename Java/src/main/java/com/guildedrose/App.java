@@ -1,11 +1,15 @@
 package com.guildedrose;
 
-import com.guildedrose.entities.Shop;
+import com.guildedrose.repositories.inMemoryRepository;
+import java.io.IOException;
 
 public class App {
 
     public static void main(String[] args) {
+
         Shop shop = new Shop(new inMemoryRepository());
-        System.out.println(shop);
+        shop.UpdateQuality(3);
+
     }
+
 }

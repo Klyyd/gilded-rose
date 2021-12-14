@@ -11,17 +11,16 @@ public class GenericItem extends Item {
     @Override
     public void update() {
         this.sellIn--;
-        this.quality--;
 
-        if (this.sellIn < 0)
-            this.sellIn--;
+        if(this.sellIn > 0){
+            this.quality --;
+        }
+        else{
+            this.quality -= 2;
+        }
+
 
         this.sellQualityToFifty();
         this.sellQualityToZero();
-    }
-
-    @Override
-    public int getSellin() {
-        return this.sellIn;
     }
 }

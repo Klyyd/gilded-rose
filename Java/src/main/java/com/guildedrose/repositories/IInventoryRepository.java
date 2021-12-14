@@ -1,9 +1,8 @@
-package com.guildedrose;
+package com.guildedrose.repositories;
 
 import com.guildedrose.entities.Item;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface IInventoryRepository {
 

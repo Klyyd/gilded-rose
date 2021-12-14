@@ -1,5 +1,7 @@
 package com.guildedrose.entities;
 
+import javax.management.InstanceAlreadyExistsException;
+
 public abstract class Item {
 
     protected String name;
@@ -15,12 +17,12 @@ public abstract class Item {
     public abstract void update();
 
     protected void sellQualityToFifty() {
-        if (this.quality > 50)
+        if (this.quality >= 50)
             this.quality = 50;
     }
 
     protected void sellQualityToZero() {
-        if (this.quality < 0)
+        if (this.quality <= 0)
             this.quality = 0;
     }
 
@@ -50,8 +52,17 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return this.name +", "+ this.sellIn +", "+ this.quality;
+        return "Item{" +
+            "nom='" + name + '\'' +
+            ", sellin=" + sellIn +
+            ", quality=" + quality +
+            '}';
     }
 
-    public abstract int getSellin();
+    public String toStringLeg() {
+        return "Item{" +
+            "nom='" + name + '\'' +
+            ", quality=" + quality +
+            '}';
+    }
 }
